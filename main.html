@@ -3,79 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    #grid-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .grid-item {
-      width: 100px;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      border: 1px solid #000;
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const gridContainer = document.getElementById('grid-container');
-      const changeButton = document.getElementById('change_button');
-      const resetButton = document.getElementById('reset_button');
-
-      changeButton.addEventListener('click', function () {
-        const blockIdInput = document.getElementById('block_id');
-        const colorInput = document.getElementById('color_id');
-
-        const blockId = blockIdInput.value;
-        const color = colorInput.value;
-
-        const gridItem = document.getElementById(`grid-item-${blockId}`);
-        gridItem.style.backgroundColor = color;
-
-        // Reset all other grid items to transparent
-        const allGridItems = document.querySelectorAll('.grid-item');
-        allGridItems.forEach(item => {
-          if (item.id !== `grid-item-${blockId}`) {
-            item.style.backgroundColor = 'transparent';
-          }
-        });
-      });
-
-      resetButton.addEventListener('click', function () {
-        const allGridItems = document.querySelectorAll('.grid-item');
-        allGridItems.forEach(item => {
-          item.style.backgroundColor = 'transparent';
-        });
-      });
-    });
-  </script>
+  
 </head>
 <body>
-  <div>
-    <label for="block_id">Block ID:</label>
-    <input type="text" id="block_id" placeholder="Enter block ID">
-
-    <label for="color_id">Color:</label>
-    <input type="text" id="color_id" placeholder="Enter color">
-
-    <button id="change_button">Change Color</button>
-    <button id="reset_button">Reset</button>
-  </div>
-
-  <div id="grid-container">
-    <div id="grid-item-1" class="grid-item">1</div>
-    <div id="grid-item-2" class="grid-item">2</div>
-    <div id="grid-item-3" class="grid-item">3</div>
-    <div id="grid-item-4" class="grid-item">4</div>
-    <div id="grid-item-5" class="grid-item">5</div>
-    <div id="grid-item-6" class="grid-item">6</div>
-    <div id="grid-item-7" class="grid-item">7</div>
-    <div id="grid-item-8" class="grid-item">8</div>
-    <div id="grid-item-9" class="grid-item">9</div>
-  </div>
+         <div class="grid"></div>
+    <form id="form">
+      <input
+        type="number"
+        min="1"
+        max="9"
+        name="inputId"
+        id="input-id"
+        required
+        placeholder="Enter cell id"
+      />
+      <input type="color" name="color" id="color-id" required />
+      <button>Add Color</button>
+    </form> -->
 </body>
 </html>
